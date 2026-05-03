@@ -13,7 +13,7 @@ chartVersion: v1.11.2
 global:
   domain: eafit.testnet.verana.network
 
-nameOverride: 'agent-pikachu'
+nameOverride: 'example-agent-chart'
 
 # Credential definition ID for user authentication (injected from config.env by workflow)
 credentialDefinitionId: ''
@@ -109,6 +109,8 @@ chatbot:
       value: '{{ .Values.credentialDefinitionId | default "" }}'
     - name: GITHUB_MCP_URL
       value: 'https://api.githubcopilot.com/mcp/'
+    - name: GOOGLE_CALENDAR_MCP_URL          # ← nuevo
+      value: 'https://calendarmcp.googleapis.com/mcp/v1'
   agentPack:
     enabled: true
     name: example-agent
@@ -141,11 +143,11 @@ vs-agent-chart:
   enabled: true
   name: example-agent
   didcommLabel: 'Example Agent'
-  didcommInvitationImageUrl: 'https://hologram.zone/images/github.svg'
+  didcommInvitationImageUrl: 'https://verana.io/logo.svg'
   eventsBaseUrl: http://example-agent-chart-chatbot:3003
   ingress:
-    host: "example-agent.{{ .Values.global.domain }}"
-    tlsSecret: "example-agent.{{ .Values.global.domain }}-cert"
+    host: "test-pikachu.agents.team-g.teams.eafit.testnet.verana.network"
+    tlsSecret: "test-pikachu.{{ .Values.global.domain }}-cert"
     public:
       enableCors: true
     private:
