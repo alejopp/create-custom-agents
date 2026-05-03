@@ -84,7 +84,7 @@ rag:
     - https://raw.githubusercontent.com/tu-org/tu-repo/main/docs/pikachu-rag.md
   vectorStore:
     type: redis
-    indexName: example_agent
+    indexName: pikachu-electricista
 
 memory:
   backend: redis
